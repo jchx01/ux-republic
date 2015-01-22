@@ -1,0 +1,115 @@
+/* Calendar Wrapper */
+$headerPadding:70px;
+
+.ui-datepicker {	
+	display: none;
+  	padding:30px 10px;
+	width: 300px;
+    margin:0 auto;
+	cursor: default;
+	font-size: 11px;
+	-webkit-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+	-moz-box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+	box-shadow: 0px 1px 1px rgba(255,255,255, .1), inset 0px 1px 1px rgb(0,0,0);
+}
+
+
+.ui-datepicker-header {
+    background: $colorGreyDark;
+    border-radius: 5px 5px 0 0;
+	position: relative;
+	padding-top:70px;
+}
+
+.ui-datepicker-title {
+    font-size:2.250em;
+    font-weight: bold;
+    color:#FFF;
+    text-align: center;
+    padding-bottom:110px;
+  }
+
+
+
+/* Prev Next Month */
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	position: absolute;
+	bottom: 30px;
+	padding: 5px;
+	cursor: pointer;
+    color:#FFF;
+}
+
+.ui-datepicker-prev {
+	left: 10px;
+	padding-left: 0;
+}
+
+.ui-datepicker-next {
+	right: 10px;
+	padding-right: 0;
+}
+
+.ui-datepicker-prev span,
+.ui-datepicker-next span{
+	display: block;
+	width: 0;
+	height: 0;
+	text-indent: -9999px;
+}
+
+.ui-datepicker-prev span {
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	border-right:10px solid #FFF;
+}
+
+.ui-datepicker-next span { 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid #FFF;
+}
+
+.ui-datepicker-calendar{
+	text-transform: uppercase;
+    background:#FFF;
+    font-weight: bold;
+    height:260px;
+}
+    
+.ui-datepicker-calendar th {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	text-align: center;
+    font-size:1.5em;
+	font-weight: normal;
+	color: $colorGreyDark;
+}
+
+.ui-datepicker-calendar td {
+	padding: 0 7px;
+	
+	text-align: center;
+	line-height: 26px;
+}
+
+.ui-datepicker-calendar .ui-state-default, {
+	display: block;
+	width: 26px;
+	outline: none;
+    border-radius: 50px;
+	text-decoration: none;
+	color: #a8a8a8;
+	border: 1px solid transparent;
+}
+
+/* Day Active State*/
+.ui-state-active,
+.ui-state-hover{
+	color: #FFF;
+	background-color:$colorGreyDark;
+}
+
+/* Other Months Days*/
+.ui-datepicker-other-month .ui-state-default { color: $colorGreyDark; }

@@ -1,0 +1,218 @@
+//VARS
+$menuWidthMobile:260px;
+$buttonPosMobile:10px;
+$menuWidthTab:290px;
+$buttonPosTab:20px;
+
+//MiXINS
+@mixin menuButtonBg(){
+  background-color: #111;
+  opacity:0.6;
+  &:hover{
+    background-color: #000;
+    opacity:0.7;
+  }
+}
+
+@mixin dev-layout($color){
+  border:0px solid $color;
+}
+
+@mixin largeTitle($size:'mobile'){
+  @if $size == 'mobile'{
+    font-size:1.8em;
+    font-weight:300;
+    text-transform: uppercase;
+  }
+  @else{
+    font-size:3.563em;
+    float:left;
+    margin:15px 15px 15px 10px;
+  }
+}
+
+//MIXIN For the main page layout (menu / content).
+//We can set the menu's width and the flying effect.
+
+@mixin setPageLayout($menuWidth,$buttonTogglePosition){
+  // LEFT NAV
+  #ux-l-main-menu{
+    @include dev-layout(blue);
+    bottom:0;
+    left:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position:fixed;
+    top:0;
+    left:-$menuWidth;
+    transition:left 500ms ease;
+    //transition:transform 500ms ease; 
+    //transform: translateX(-100%);
+    width:$menuWidth;
+  }
+  
+  //MAIN CONTENT - RIGHT BLOCK
+  #ux-l-main-content{
+    @include dev-layout(red);
+    position:relative;
+    left:0;
+    height:100%;
+    transition:left 500ms ease;
+    //transform:translateX(0);
+    //transition:transform 500ms ease; 
+    width:100%;
+  }
+  
+  //TOGGLE MENU BUTTON
+  #main-menu-toggle{
+    @include menuButtonBg;
+    display: block;
+    height: 47px;
+    left:$buttonTogglePosition;
+    position:fixed;
+    text-align:center;
+    top:$buttonTogglePosition;
+    transition:left 500ms ease;
+    width: 55px;
+    z-index:2;
+    &:after{
+      $height:7px;
+      @include menuButtonBg;
+      bottom:-$height;
+      content:'';
+      height:$height;
+      left:0;
+      position:absolute;
+      width:5px;
+    }
+  }
+  
+  //OFF_CANVAS STATE WHEN MENU IS EXPANDED
+  .menu-expanded{
+    #ux-l-main-menu{
+      left:0;
+      //transform:translateX(0);
+    }
+    #ux-l-main-content{
+      left:$menuWidth;
+      //transform:translateX($menuWidth);
+    }
+    
+    #main-menu-toggle{
+      left:$menuWidth + $buttonTogglePosition ;
+    }
+  }
+  
+  //Back To Top Button
+  #ux-back-to-top{
+    background-color:#555;
+    background-color:rgba(85,85,85,0.4);
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAABYkAAAWJAGbFcYUAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAATJQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8q1l3QAAAGV0Uk5TAAECAwQFBggJCgwTFRcYGRobICEkJikqLS4wMTM/QUZKU1dYW1xdZGdobHJzdnt+f4CCg4aHjY+TlpufoaKssbO1u77Bw8XHyc3Oz9DR1dbX2Nna29zj5Obp6uzu7/Dx8vn7/f4hO5mnAAADZklEQVQYGZXBB0PaXAAF0Bs/cdVIlY6ouMFBcS9QREFRqn5SS13Bbe7//wvlvRfSBAKEc9BM1+hSplC8KN3clg+356P96Mj4Rv6VHtZlUkdA2vQx/bwfzfSgvd6FEpuqLIfQRuyBLV1NoJWBDNs60NFUtEy3+2xqZ2t9JX1SodvTHPxpyTc67tLxCBz61N4LHVYCfrR9Os7jIdTpi+U/WLMKH7usyU3C19gZa3Y11Ful7XkWzWiLj7Tta/BK0HY6ghYGs7Ql4TFnUbI2u9GSlqLyFoWL/kQlgbbWqJQH8M8BlTUEkLAoZeCYoJJCIJtUYrCFrihlNQTSfUrpoRfKMqXHQQQ08kxpAVJPhdIiApulVNIgzFA60xBcjtI0hCMKH2PowCSlY1Tp7xTy6Mg5pXEASUoxdCROaQPAJYWXPvjpMoz/4Cd0RyEP9FsU9uDn+wX5/3f4SVN47UKU0hR8GCarTAM+4pRGMU9JRyPDpGQaaBShtIRtChU0MkzaTAON7ilkcEjhBA0Mkw7TQIMshQLKFNKoZ5h0MQ3US1Eo4pbCCuoYJj1MA3V2KFzghsI6vAyTyq9fVEwDXlsUSihR2IKHYVK5Hhq6pmIa8FincIMLCjtw+2ZSuQ4D4Wsq5je4rVC4RZFCCi7aTyq/w6gK/6byU4NLmkIZBQpZuHylUv4M6XOZyle4nFA4RIbCPVy+UCoPwzZcpvQFLhUK21iiFIFLkVV/huEY/sOqIlx0SvMYpRSHS6RA5sJwCefIQgQuU5Si6HqlkIbH0CfU+TQEjz0KVj+Qp3AXQkf6XihcAtigFEdHYpSSAMYpnaMjeQrvOqqOKU2iA2MfFI4gTFPKITjtjNIMBK1EaRaBLVKq9EBaoPQ8goAGHyktQ+l9oHTajUC0LKWrEGwxKpsIJEVlAo4MJSuBANaoHOCfgTKVNbSVoPKkwyX6RiWloaXuTYuSNQePJG3ZQbQwckpbAl7aPm2PixqamX2mbRX1tF3WnI3B12SONbvwscqaj3ysD3VC8XM69jX4SVh0vOxN6XBE4uk7Ot6SGvzNPdGtcpJeWd/aSWXv6VaOoin9gG1lBtDKxBVbeoihjdByhU2VFnrRXs/M0Tv9HE9rCEj/cWnR4zW/MY6O9Efntw/Ltzeli2IhszTahSb+AsvREQvzKXOcAAAAAElFTkSuQmCC624bf8c35b41cc36ea6ff20aa9f83179");
+    border-radius:50px;
+    bottom: $buttonTogglePosition;
+    display: block;
+    height: 64px;
+    opacity: 0.5;
+    position: fixed;
+    right: $buttonTogglePosition;
+    text-indent: -9999px;
+    width: 64px;
+    z-index: 999;
+    &:hover{
+      opacity:0.9;
+    }
+  }
+}
+
+//MOBILE FIRST 
+@include setPageLayout($menuWidthMobile,$buttonPosMobile);
+
+//LARGER MENU AND PROPORTIONS FOR TABLETS AND DESKTOP
+@media ($breakpointTabMin){
+  @include setPageLayout($menuWidthTab,$buttonPosTab);
+}
+
+/*CONTENT*/
+section,.ux-container-inner{
+  clear:both;
+  position:relative;
+  width:100%;
+}
+
+section:not(#ux-home){
+  padding:60px 0;
+}
+
+.ux-full-height{height:100%;}
+
+.ux-container-inner{
+  padding:0 10px;
+}
+
+.ux-content{
+  padding:10px 0;
+}
+
+.ux-vertical-align{
+  display:table;
+  height:100%;
+  vertical-align:middle;
+  & > *{
+    display:table-cell;
+    position:relative;
+    vertical-align: middle;
+  }
+}
+
+/*Home*/
+.ux-tagline{
+  text-align:center;
+  .ux-logo,h1{
+    margin:15px auto;
+    overflow:hidden;
+  }
+  h1,h2{
+    @include largeTitle;
+    span{
+      display:block;
+      font-weight:900;
+    }
+  }
+}
+
+ux-large-title{
+  @include largeTitle;
+}
+
+.ux-home-bottom{
+  width:100%;
+  height:4px;
+  position:absolute;
+  bottom:0;
+  span{
+    display:inline-block;
+    float:left;
+    height:3px;
+    width:((100/7)*1%);
+    & a{
+      display:none;
+    }
+  }
+}
+
+//> Tablet and Desktop OVERRIDE
+@media ($breakpointTabMin){
+  .ux-tagline {
+    text-align:left;
+    .ux-logo,h1{
+      @include largeTitle('mdlarge');
+    }
+  }
+  .ux-container-inner{
+    padding:0 20px;
+  }
+  h2.ux-large-title{
+    @include largeTitle('mdlarge');
+  }
+}
+

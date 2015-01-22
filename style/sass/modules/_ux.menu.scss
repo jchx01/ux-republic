@@ -1,0 +1,111 @@
+$linkHeight:100px;
+$menuWidthDesktop:$menuWidthTab;
+
+@mixin bgMenuRadiant($default){
+  background: $default;
+  background: -moz-linear-gradient(top,  $default -3%, #2b2b2b -2%, #2b2b2b -2%, $default -1%, $default 0%, #303030 0%, $default 0%, $default 0%, #2b2b2b 0%, #2b2b2b 0%, $default 0%, #333333 1%, $default 1%, #2b2b2b 1%, #2b2b2b 100%, #1c1c1c 100%, #333333 100%, #2b2b2b 100%, #131313 100%, #212121 100%, #2b2b2b 100%, #2b2b2b 100%, #2c2c2c 100%, #1c1c1c 100%, #2b2b2b 100%, #2b2b2b 100%, #2c2c2c 101%, #2c2c2c 101%, #1c1c1c 102%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-3%,$default), color-stop(-2%,#2b2b2b), color-stop(-2%,#2b2b2b), color-stop(-1%,$default), color-stop(0%,$default), color-stop(0%,#303030), color-stop(0%,$default), color-stop(0%,$default), color-stop(0%,#2b2b2b), color-stop(0%,#2b2b2b), color-stop(0%,$default), color-stop(1%,#333333), color-stop(1%,$default), color-stop(1%,#2b2b2b), color-stop(100%,#2b2b2b), color-stop(100%,#1c1c1c), color-stop(100%,#333333), color-stop(100%,#2b2b2b), color-stop(100%,#131313), color-stop(100%,#212121), color-stop(100%,#2b2b2b), color-stop(100%,#2b2b2b), color-stop(100%,#2c2c2c), color-stop(100%,#1c1c1c), color-stop(100%,#2b2b2b), color-stop(100%,#2b2b2b), color-stop(101%,#2c2c2c), color-stop(101%,#2c2c2c), color-stop(102%,#1c1c1c));
+  background: -webkit-linear-gradient(top,  $default -3%,#2b2b2b -2%,#2b2b2b -2%,$default -1%,$default 0%,#303030 0%,$default 0%,$default 0%,#2b2b2b 0%,#2b2b2b 0%,$default 0%,#333333 1%,$default 1%,#2b2b2b 1%,#2b2b2b 100%,#1c1c1c 100%,#333333 100%,#2b2b2b 100%,#131313 100%,#212121 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 100%,#1c1c1c 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 101%,#2c2c2c 101%,#1c1c1c 102%);
+  background: -o-linear-gradient(top,  $default -3%,#2b2b2b -2%,#2b2b2b -2%,$default -1%,$default 0%,#303030 0%,$default 0%,$default 0%,#2b2b2b 0%,#2b2b2b 0%,$default 0%,#333333 1%,$default 1%,#2b2b2b 1%,#2b2b2b 100%,#1c1c1c 100%,#333333 100%,#2b2b2b 100%,#131313 100%,#212121 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 100%,#1c1c1c 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 101%,#2c2c2c 101%,#1c1c1c 102%);
+  background: -ms-linear-gradient(top,  $default -3%,#2b2b2b -2%,#2b2b2b -2%,$default -1%,$default 0%,#303030 0%,$default 0%,$default 0%,#2b2b2b 0%,#2b2b2b 0%,$default 0%,#333333 1%,$default 1%,#2b2b2b 1%,#2b2b2b 100%,#1c1c1c 100%,#333333 100%,#2b2b2b 100%,#131313 100%,#212121 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 100%,#1c1c1c 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 101%,#2c2c2c 101%,#1c1c1c 102%);
+  background: linear-gradient(to bottom,  $default -3%,#2b2b2b -2%,#2b2b2b -2%,$default -1%,$default 0%,#303030 0%,$default 0%,$default 0%,#2b2b2b 0%,#2b2b2b 0%,$default 0%,#333333 1%,$default 1%,#2b2b2b 1%,#2b2b2b 100%,#1c1c1c 100%,#333333 100%,#2b2b2b 100%,#131313 100%,#212121 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 100%,#1c1c1c 100%,#2b2b2b 100%,#2b2b2b 100%,#2c2c2c 101%,#2c2c2c 101%,#1c1c1c 102%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$default', endColorstr='#1c1c1c',GradientType=0 );
+}
+
+#ux-l-main-menu{
+  @include bgMenuRadiant($colorGrey);
+  & li, & a{
+    height:$linkHeight;
+    line-height:$linkHeight;
+  }
+  & a{
+    @include bgMenuRadiant($colorGrey);
+    border:solid #2F2F2F;
+    border-color:rgba(45,45,45,0.7);
+    color:#555;
+    display:block;
+    margin-left:15px;
+    text-decoration:none;
+    width:100%;
+    &:hover{
+      margin-left:20px;
+      color:#FFF;
+    }
+  }
+  
+  & li{
+    border:solid #2F2F2F;
+    border-width:1px 0;
+    color:#FFF;
+    font-size:1.3em;
+    list-style-type:none;
+    text-transform:uppercase;
+    
+    &.ux-home{
+      border-bottom:1px solid #2F2F2F;
+      background:url('http://www.ux-republic.com/img/icon_home_logo_navbar.png') no-repeat 40px center  #000;
+      padding-left:100px;
+      & a{
+        margin: 0;
+        background:none;
+        color: #FFF;
+        display: inline;
+        border: 0;
+        &:hover{
+          color:#555 !important;
+        }
+      }
+    }
+  }
+}
+
+.touch #ux-l-main-menu{
+  & a, & a:hover{
+    margin-left:15px;
+    color:#FFF;
+  }
+}
+/* MENU ICON
+   Manage the hamburger' style menu icon and the transitions when the menu is expanded/collapsed
+*/
+$spacing:-7px;
+.burger span,.burger span:before, .burger span:after {
+  background: #FFF;
+  border-radius: 0;
+  content:'';
+  display: block;
+  height: 4px;
+  margin:0 auto;
+  position: relative;
+  transition: all 600ms ease-in-out;
+  width: 25px;
+  z-index:10;
+}
+
+
+.burger span{
+  top:22px;
+  &:before {
+    position:absolute;
+    top: $spacing;
+  }
+ &:after {
+    position:absolute;
+    bottom: $spacing; 
+  }
+}
+
+.menu-expanded .burger span{
+    background-color: transparent;
+    &:before,  &:after{
+      border-radius:4px;
+      height:7px;
+      top: 0px;
+    }
+    &:before{
+      transform: rotate(45deg);
+    }
+    &:after{
+      transform: rotate(-45deg);  
+    }
+}

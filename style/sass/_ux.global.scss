@@ -1,0 +1,143 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800,300,400);
+
+*{
+    box-sizing: border-box;
+}
+html,body{height:100%;}
+
+body{
+    background-color:#000;
+    color:#FFF;
+    font-family:'Open Sans', arial, sans-serif;
+    font-size:16px;
+    min-width:300px;
+    overflow-x:hidden;
+    &.menu-expanded{
+      overflow:hidden;
+    }
+}
+
+h2{
+    font-size:1.500em;
+    font-weight:bold;
+    padding:15px 0;
+    text-transform: uppercase;
+}
+
+h3{
+    font-size:1.250em;
+    font-weight:bold;
+    padding:12px 0;
+}
+
+p{
+    margin:0 0 10px 0;
+    &.intro{
+        font-weight: bold;
+    }
+}
+
+@media ($breakpointTabMin){
+    h2{padding:15px;}
+    p{
+        margin-bottom:15px;
+    }
+}
+
+a{
+    transition:all 300ms cubic-bezier(1,.44,.5,1.06);
+}
+
+.no-touch a:hover{
+    color:inherit !important;    
+}
+
+.hide{
+    display:none !important;
+}
+
+.no-js .no-js-show{
+    display:block !important;
+}
+
+.ux-lowercase{
+    font-size:0.688em !important;
+    font-weight:normal !important;
+    text-transform: lowercase;
+}
+
+.ux-bgcolor-blue{
+    background-color:$colorBlueLight;
+}
+
+.ux-bgcolor-green{
+    background-color:$colorGreen;
+}
+
+.ux-bgcolor-orange{
+    background-color:$colorOrange;
+}
+
+.ux-bgcolor-red{
+    background-color:$colorRed;
+}
+
+.ux-bgcolor-purple{
+    background-color:$colorPurple;
+}
+
+.ux-bgcolor-pinkdark{
+    background-color:$colorPinkDark;
+}
+*
+.ux-bgcolor-greydark{
+    background-color:$colorGreyDark;
+}
+
+.ux-bgcolor-black{
+    background-color: #000;
+    color:#FFF;
+}
+
+.ux-color-blue{
+    color:$colorBlueLight;
+}
+
+.ux-color-green{
+    color:$colorGreen;
+}
+
+.ux-color-orange{
+    color:$colorOrange;
+}
+
+.ux-color-red{
+    color:$colorRed;
+}
+
+.ux-color-purple{
+    color:$colorPurple;
+}
+
+.ux-color-pinkdark{
+    color:$colorPinkDark;
+}
+*
+.ux-color-greydark{
+    color:$colorGreyDark;
+}
+
+.ux-color-black{
+    color: #000;
+    color:#FFF;
+}
+
+.fa{
+    font-size:1.5em!important;
+    margin-right:5px;
+    &.ux-rotate-right{
+        margin-right:10px;
+        transform:rotate(45deg);
+    }
+}
+

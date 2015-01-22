@@ -1,0 +1,124 @@
+//Blocks
+#ux-data{
+  overflow: hidden;
+  text-align:center;
+  .ux-container-inner{
+	overflow: hidden;
+	margin:0 auto;
+	max-width: 1200px;
+  }
+}
+
+.ux-data-item{
+	background: #FFF;
+	-webkit-box-shadow: 0px 1px 2px 2px rgba(207,207,207,1);
+	-moz-box-shadow: 0px 1px 2px 2px rgba(207,207,207,1);
+	box-shadow: 0px 1px 2px 2px rgba(207,207,207,1);
+	border-radius:5px;
+	color:$colorGreyLight;
+	font-size:0.820em;
+	margin:0 auto 20px auto;
+	max-width:400px;
+	overflow:hidden;
+	padding:10px 10px 30px 10px;
+	text-align:left;
+	width:100%;
+
+	& > div{
+	  margin-bottom:10px;
+	  clear:both;
+	}
+	
+	.d-aka{
+	  border-radius:10px;
+	  background:$colorGreen;
+	  color:#FFF;
+	  float:left;
+	  font-size:1.563rem;
+	  font-weight:500;
+	  margin:0 10px 0 0;
+	  padding:12px 11px 15px 11px;
+	}
+  
+	.d-title{
+	  float:left;
+	}
+	
+	h4,.d-insight span{
+	  font-size:1.250rem;
+	  font-weight:600;
+	  margin-bottom:3px;
+	  text-transform: uppercase;
+	}
+	
+	h4{color:$colorGreen;margin-top:10px;}
+    
+	.d-insight i{
+	  transform:rotate(45deg);
+	  margin-right:-3px;
+	}
+	
+	.d-insight,.d-charts{
+	  text-align:center;
+	}
+	
+	.data-chart{
+	  float:left;
+	 
+	  width: 50%;
+	}
+	.data-doughnuts{
+	  margin: 10px auto;
+	  position:relative;
+	}
+}
+
+@media (min-width:965px){
+  .ux-data-item{
+	display:block;
+	float:left;
+	margin:0 1% 0 0;
+	width:32%;
+  }
+}
+
+// circliful plugin
+.circliful {
+    position: relative; 
+}
+
+.circle-text, .circle-info, .circle-text-half, .circle-info-half {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+}
+
+.circle-text{
+  font-size:38px;
+}
+
+.circle-info, .circle-info-half {
+	color: #999;
+}
+
+.circliful .fa {
+	margin: -10px 3px 0 3px;
+	position: relative;
+	bottom: 4px;
+}
+
+
+
+
+
+  
+  
+
+
+
+// Slider styles
+
+//
+
+
